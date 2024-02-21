@@ -16,18 +16,20 @@ const product3 = {
   description: 'Aby muži na rozpálených plážích kromě vašeho těla obdivovali také vaše nitro.',
 };
 
-function updateProductCard(product, cardIndex) {
-  const card = document.querySelector(`.card:nth-of-type(${cardIndex})`);
-  const imageElement = card.querySelector('.card-img-top');
-  const nameElement = card.querySelector('.card-title');
-  const descriptionElement = card.querySelector('.card-text');
+// Uložení karty s prvním produktem do proměnné
+const firstProductCard = document.querySelector('.card:first-of-type');
 
-  imageElement.src = product.image;
-  nameElement.textContent = product.name;
-  descriptionElement.textContent = product.description;
-}
+// Přidání třídy border-primary pro zvýraznění prvního produktu
+firstProductCard.classList.add('border-primary');
 
-// Aktualizace karet pro jednotlivé produkty
-updateProductCard(product1, 1);
-updateProductCard(product2, 2);
-updateProductCard(product3, 3);
+// Uložení tlačítka na druhé kartě do proměnné
+const secondCardButton = document.querySelector('.card:nth-of-type(2) .btn');
+
+// Odebrání třídy btn-primary z tlačítka
+secondCardButton.classList.remove('btn-primary');
+
+// Uložení elementu s třídou card-title posledního produktu do proměnné
+const lastProductTitle = document.querySelector('.card:last-of-type .card-title');
+
+// Přepínání třídy text-center na elementu card-title posledního produktu
+lastProductTitle.classList.toggle('text-center');
